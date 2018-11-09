@@ -1,3 +1,9 @@
+'''
+Nov 7， 2018
+@author:        Kai Yan
+@license:       GNU GPLv2
+@contact:       kyan@tju.edu.cn
+'''
 import numpy
 import scipy.special
 # neural network class definition
@@ -42,35 +48,3 @@ class neuralNetwork :
     # query the neural network
     def query(self, inputs_list):
         #行向量转换为列向量
-        inputs = numpy.array(inputs_list, ndmin = 2).T
-        #用权重点乘输入，因此行数是输出节点数，列数是输入节点数
-        hidden_inputs = numpy.dot(self.w_ih, inputs)
-        #通过sigmoid函数，变成节点输出
-        hidden_outputs = scipy.special.expit(hidden_inputs)
-        final_inputs = numpy.dot(self.w_ho, hidden_outputs)
-        final_outputs = scipy.special.expit(final_inputs)
-        return final_outputs
-
-inputNodes = 784
-hiddenNodes = 100
-outputNodes = 10
-learningRate = 0.3
-n = neuralNetwork(inputNodes,hiddenNodes,outputNodes,learningRate)
-
-data_file = open("mnist_train.csv",'r')
-data_list = data_file.readlines()
-data_file.close()
-for i in range(10000):
-    all_values = data_list[i].split(',')
-    scaled_input = (numpy.asfarray(all_values[1:])/255.0 * 0.99)+0.01
-    targets = numpy.zeros(outputNodes) + 0.01
-    targets[int(all_values[0])] = 0.99
-    n.train(scaled_input, targets)
-data_file = open("mnist_test.csv",'r')
-data_list = data_file.readlines()
-data_file.close()
-for i in range(10):
-    all_values = data_list[i].split(',')
-    scaled_input = (numpy.asfarray(all_values[1:])/255.0 * 0.99)+0.01
-    print(n.query(scaled_input))
-    print(all_values[0])
