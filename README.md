@@ -54,4 +54,30 @@ Compute Class:
 - **a.argmax(axis=0)** returns the index of the max num. #1089
 - **np.matmul** for multiply two matrix. #1224
 
+## Quantifying
 
+**hs300peA.py**
+
+This is a really easy Strategy for investment. It is designed for Financial Engineering Course. Codes are easy to read. Math method contains exponent, coefficient of variation and mean.
+
+- **np.std** and **np.mean** to compute std. deviation and average. #219
+- **list.append** is a method to add an element, not concat. #238
+- List expression like **[5\*(n+1) for n in range(10)]**. #579
+- **x,y=np.meshgrid(x,y)** is a method for 3D plot. The new x and y are both matrix and they have the same size. The same position in x and y means the x-axis and y-axis. #644
+
+Introduction:
+
+The structure of the code is quite easy. The strategy uses P/E to proxy value and Coefficient of Variation to proxy trend. There are about 4 parts in this strategy:
+
+1. Add daily data. Daily data contains Price, P/E. Then compute some parameters.
+2. Buy model. Buy fixed quantity stock daily and buy stock when trend appears.
+3. Sell model. Sell when fall trend appears.
+4. Compound interest. Calculate currency interest when a day ends.
+
+Buy & Sell Model:
+- Fixed money investment is effective.
+- How to recognize the trend:
+  - Choose a window of Index Price, default is 30 trade day.
+  - The Price should change at least 5%. Or it is not significant.
+  - Calculate the Coefficient of Variation in the window. Only CoV which is higher than top 50% is significant.
+- When a raise trend appears, spend 20% left money in stock.  
