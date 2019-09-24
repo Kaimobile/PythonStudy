@@ -10,9 +10,11 @@ Code about Python
 - Codes about crawl music comments. In this file, **GET** method, **JSON** content process and **DataFrame** are used.
 
 **seleniumtest.py**
+- Version 1.01
 - Simulate the user's login actions in the browser to get the cookies by **selenium** Package.
 
 **baidutest.py**
+- Version 2.2
 - Baidu Index Crawler. Maybe the theory of decode the baidu index data is necessary.
 ## Neural Network
 **nntest1.py**
