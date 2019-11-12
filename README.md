@@ -16,6 +16,10 @@ Code about Python
 **baidutest.py**
 - Version 2.2
 - Baidu Index Crawler. Maybe the theory of decode the baidu index data is necessary.
+
+**laixuanzuo_simulate.py**
+- Version 1.10
+- Simulate user's mouse to click the buttom to book the selected seat on the Laixuanzuo platform. You can add a schedule task to run this program instead of waking up for booking.
 ## Neural Network
 **nntest1.py**
 - A basic **Neural Network** model. The test data is MNIST.
